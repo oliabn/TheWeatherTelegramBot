@@ -24,6 +24,8 @@ params = {"q": f"{city}", "appid": TOKEN, "units": "metric"}
 response = requests.get("https://api.openweathermap.org/data/2.5/weather", params=params)
 
 json_dict = response.json()
+# content = requests.get(url).text
+# data_dict = json.loads(content)
 ```
 ________________
 
