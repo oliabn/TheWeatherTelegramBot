@@ -11,7 +11,7 @@ Example from openweathermap.org:
 https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
 id={city id}
 appid={API key}
-units = metric
+units={metric}
 ```
 
 Example from Python:
