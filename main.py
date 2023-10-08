@@ -15,8 +15,7 @@ def answer_user_bot(msg, chat_id):
 
 
 def parse_weather_data(data):
-    for elem in data["weather"]:
-        weather_state = elem["main"]
+    weateher_state = data["weather"][0]["main"]
     temp = round(data["main"]["temp"] - 273.15, 2)
     city = data["name"]
     msg = f"The weather in {city}, Temp: {temp}, State: {weather_state}"
@@ -51,13 +50,7 @@ def main():
         content = requests.get(url).text
         data = json.loads(content)
         result = data["result"][::-1]
-        needed_part = None
-
-        # Finding the last message and
-        # writing this getting result from request as dict. into needed_part
-        for elem in result:
-            needed_part = elem
-            break
+        needed_part = result[0]
 
         # If the last message hasn't yet been processed -> get the message and save this update as processed
         if const.UPDATE_ID != needed_part["update_id"]:
